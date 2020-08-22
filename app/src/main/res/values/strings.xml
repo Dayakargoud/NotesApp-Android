@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Simple Notes</string>
+    <string name="title_activity_splash_screen">FullscreenActivity</string>
+    <string name="click_to_add_notes">Click + to add Notes</string>
+</resources>

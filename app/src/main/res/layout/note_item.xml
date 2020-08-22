@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+          <variable
+              name="noteItem"
+              type="com.dayakar.simplenote.model.Note" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:elevation="4dp"
+        android:layout_margin="4dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:cardCornerRadius="8dp"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:background="#4D66BB6A"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{noteItem.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_margin="2dp"
+                tools:text="Title"/>
+
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{noteItem.note}"
+                android:layout_margin="4dp"
+                android:layout_below="@+id/title"
+                android:maxLines="3"
+                tools:text="Note description"/>
+
+            <TextView
+                android:id="@+id/dateCreated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/note"
+                android:layout_margin="4dp"
+                android:layout_alignParentEnd="true"
+                android:text="@{noteItem.formatDate(noteItem.updatetime)}"
+                tools:text="4:30 pm 23-8-2020"/>
+            <ImageView
+                android:id="@+id/sync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dateCreated"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_baseline_sync_problem_24"
+                android:padding="4dp"
+                android:layout_margin="8dp"
+                android:visibility="@{noteItem.isSynced ? View.GONE : View.VISIBLE}"
+                />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

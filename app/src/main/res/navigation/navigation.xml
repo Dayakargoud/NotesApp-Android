@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/notesFragment">
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.dayakar.simplenote.ui.notes.NotesFragment"
+        android:label="Simple Notes"
+        tools:layout="@layout/notes_fragment" >
+        <action
+            android:id="@+id/action_notesFragment_to_addNotesFragment"
+            app:destination="@id/addNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNotesFragment"
+        android:name="com.dayakar.simplenote.ui.addnotes.AddNotesFragment"
+        android:label="Add notes"
+        tools:layout="@layout/add_notes_fragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dayakar.simplenote.ui.auth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login"
+        >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.dayakar.simplenote.ui.auth.SignUpFragment"
+        android:label="SignUp"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>
